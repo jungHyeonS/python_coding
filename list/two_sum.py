@@ -5,7 +5,6 @@ class Solution:
     res = []
     while(True):
       sum = nums[start] + nums[end]
-      print(sum)
       if sum == target:
         res.append(start)
         res.append(end)
@@ -20,18 +19,7 @@ class Solution:
     res.sort()
     return res
 
-    # res = []
-    # for i in range(0,len(nums)-1):
-    #   for j in range(i+1,len(nums)):
-    #     if nums[i] + nums[j] == target:
-    #       res.append(i)
-    #       res.append(j)
-      
-    # return res
-
-    
-
 
 if __name__ == '__main__':
   solution = Solution()
-  solution.twoSum([-1,-2,-3,-4,-5],-8)
+  solution.twoSum([3,2,4],6)
