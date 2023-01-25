@@ -18,12 +18,24 @@ class BrowserHistory(object):
     self.current.next = node
     self.current = self.current.next
     self.size = self.size + 1
+    print("size : " + str(self.size))
+    print("------visit------")
     pass
   
   def back(self,steps):
     # 현재 노드 크기에서 steps를 뺀만큼 접근, 접근한 노드를 현재 바라보고있는 노드로 변경
+    # print(self.size)
+    
+    print("size : " + str(self.size))
+    print("steps : " + str(steps))
+    print("-------back-------")
     hCur = self.head
-    self.size = self.size - steps
+    if steps > self.size:
+      self.size = 0
+    else:
+      self.size = self.size - steps  
+    
+    
     for _ in range(self.size):
       hCur = hCur.next
     self.current = hCur
@@ -33,7 +45,13 @@ class BrowserHistory(object):
   def forward(self,steps):
     # 현재 노드 크기에서 steps를 더한만큼 접근, 접근한 노드를 현재 바라보고있는 노드로 변경
     hCur = self.head
+    # if steps < self.size:
+    print("size : " + str(self.size))
+    print("steps : " + str(steps))
+    print("-------froward-------")
     self.size = self.size + steps
+          
+      
     for _ in range(self.size):
       hCur = hCur.next
     self.current = hCur
@@ -49,3 +67,7 @@ browserHistory.visit("youtube.com")
 browserHistory.back(1)
 browserHistory.back(1)
 browserHistory.forward(1)
+browserHistory.visit("linkedin.com")
+browserHistory.forward(2)
+browserHistory.back(2)
+browserHistory.back(7)
