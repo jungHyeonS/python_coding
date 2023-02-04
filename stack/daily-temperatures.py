@@ -5,20 +5,17 @@ class Solution:
       answer = []
       for i,daily in enumerate(temperatures):
         answer.append(0)
-        if len(stack) < 1:
-          stack.append({'key':i,'value':daily})
-        else:
-          while(True):
-            if len(stack) >= 1:
-              if stack[-1]['value'] < daily:
-                answer[stack[-1]['key']] = i - stack[-1]['key']
-                stack.pop()
-              else:
-                stack.append({'key':i,'value':daily})
-                break
+        while(True):
+          if len(stack) >= 1:
+            if stack[-1]['value'] < daily:
+              answer[stack[-1]['key']] = i - stack[-1]['key']
+              stack.pop()
             else:
               stack.append({'key':i,'value':daily})
               break
+          else:
+            stack.append({'key':i,'value':daily})
+            break
       return answer
     
 
