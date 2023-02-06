@@ -6,7 +6,7 @@ class Solution:
         if num in memo:
           pass
         else:
-          memo[num] = 1
+          memo[num] = num
       target = 0
       max = 0
       for num in nums:
@@ -23,8 +23,7 @@ class Solution:
             if len > max:
               max = len
             break
-        break
       return max
 
 solution = Solution()
-print(solution.longestConsecutive([100,4,200,1,3,2]))
+print(solution.longestConsecutive([0,3,7,2,5,8,4,6,0,1]))
